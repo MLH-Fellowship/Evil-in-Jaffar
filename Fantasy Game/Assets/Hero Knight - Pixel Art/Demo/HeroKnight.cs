@@ -27,6 +27,15 @@ public class HeroKnight : MonoBehaviour {
     public Transform attackPoint;
     public float attackRange = 0.5f;
 
+    public int maxHealth = 1000;
+    public int health;
+    public HealthBar healthBar;
+
+
+    public bool block = false;
+    public bool m_isDead = false;
+
+
 
     // Use this for initialization
     void Start ()
@@ -38,6 +47,10 @@ public class HeroKnight : MonoBehaviour {
         m_wallSensorR2 = transform.Find("WallSensor_R2").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL1 = transform.Find("WallSensor_L1").GetComponent<Sensor_HeroKnight>();
         m_wallSensorL2 = transform.Find("WallSensor_L2").GetComponent<Sensor_HeroKnight>();
+        m_animator.SetBool("noBlood",m_noBlood);
+
+        health = maxHealth;
+        healthBar.MaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -91,19 +104,8 @@ public class HeroKnight : MonoBehaviour {
         //Wall Slide
         m_animator.SetBool("WallSlide", (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State()));
 
-        //Death
-        if (Input.GetKeyDown("e"))
-        {
-            m_animator.SetBool("noBlood", m_noBlood);
-            m_animator.SetTrigger("Death");
-        }
-            
-        //Hurt
-        else if (Input.GetKeyDown("q"))
-            m_animator.SetTrigger("Hurt");
-
         //Attack
-        else if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.50f)
+        if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.50f)
         {
             m_currentAttack++;
 
@@ -120,9 +122,8 @@ public class HeroKnight : MonoBehaviour {
 
             // detects if an enemy was hit
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayers);
-            Debug.Log(hitEnemies.Length);
             foreach (Collider2D enemy in hitEnemies){
-                Debug.Log(enemy.name);
+                enemy.GetComponent<Bandit>().TakeDamage(99);
             }
 
             // Reset timer
@@ -134,11 +135,13 @@ public class HeroKnight : MonoBehaviour {
         {
             m_animator.SetTrigger("Block");
             m_animator.SetBool("IdleBlock", true);
+            block = true;
         }
 
-        else if (Input.GetMouseButtonUp(1))
+        else if (Input.GetMouseButtonUp(1)){
             m_animator.SetBool("IdleBlock", false);
-
+            block = false;
+        }
         // Roll
         else if (Input.GetKeyDown("left shift") && !m_rolling)
         {
@@ -185,6 +188,22 @@ public class HeroKnight : MonoBehaviour {
 
     void OnDrawGizmosSelected() {
         Gizmos.DrawWireSphere(attackPoint.position,attackRange);
+    }
+
+    public bool TakeDamage(int damage){
+        if(m_isDead == false && block != true) {
+            health -= damage;
+            healthBar.SetHealth(health);
+            m_animator.SetTrigger("Hurt");
+            if(health <= 0) {
+                
+                m_animator.SetTrigger("Death");
+                m_isDead = true;
+                this.enabled= false;
+                return true;
+            }
+        }
+        return false;
     }
 
     // Called in slide animation.

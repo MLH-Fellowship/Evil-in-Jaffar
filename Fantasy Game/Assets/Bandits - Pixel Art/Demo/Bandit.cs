@@ -7,24 +7,31 @@ public class Bandit : MonoBehaviour {
     [SerializeField] float      m_jumpForce = 7.5f;
 
     private Animator            m_animator;
-    private Rigidbody2D         m_body2d;
-    private Sensor_Bandit       m_groundSensor;
-    private bool                m_grounded = false;
-    private bool                m_combatIdle = false;
+    // private Rigidbody2D         m_body2d;
+    // private Sensor_Bandit       m_groundSensor;
+    // private bool                m_grounded = false;
+    // private bool                m_combatIdle = false;
     private bool                m_isDead = false;
 
-    public int health = 1000;
+    public int health;
+    public int maxHealth = 1000;
+    public HealthBar healthBar;
 
     public Transform player;
     public bool isFlipped = true;
+    public LayerMask playerMask;
+    public float attackRange = 4f;
+    public Vector3 attackOffset;
 
     // Use this for initialization
     void Start () {
         m_animator = GetComponent<Animator>();
-        m_body2d = GetComponent<Rigidbody2D>();
-        m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Bandit>();
+        // m_body2d = GetComponent<Rigidbody2D>();
+        // m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Bandit>();
 
         Physics2D.IgnoreLayerCollision(8,10);
+        health = maxHealth;
+        healthBar.MaxHealth(maxHealth);
     }
 
     public void LookAtPlayer() {
@@ -41,83 +48,38 @@ public class Bandit : MonoBehaviour {
             isFlipped = true;
         }
     }
-	
-	// Update is called once per frame
-	// void Update () {
-    //     //Check if character just landed on the ground
-    //     if (!m_grounded && m_groundSensor.State()) {
-    //         m_grounded = true;
-    //         m_animator.SetBool("Grounded", m_grounded);
-    //     }
 
-    //     //Check if character just started falling
-    //     if(m_grounded && !m_groundSensor.State()) {
-    //         m_grounded = false;
-    //         m_animator.SetBool("Grounded", m_grounded);
-    //     }
+    public void Attack() {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
 
-    //     // -- Handle input and movement --
-    //     float inputX = Input.GetAxis("Horizontal");
+        Collider2D hitPlayer = Physics2D.OverlapCircle(pos,attackRange, playerMask);
+        if (hitPlayer != null) {
+            // Debug.Log(hitPlayer.name);
+            if (hitPlayer.GetComponent<HeroKnight>().TakeDamage(99)) {
+                m_animator.SetBool("playerDead", true);
+            }
+        }
+    }
 
-    //     // Swap direction of sprite depending on walk direction
-    //     if (inputX > 0) {
-    //         if (transform.localScale.x > 0)
-    //             transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
-    //     }
-    //     else if (inputX < 0) {
-    //         if (transform.localScale.x < 0)
-    //             transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
-    //     }
+    void OnDrawGizmosSelected() {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+        
+        Gizmos.DrawWireSphere(pos,attackRange);
+    }
 
-    //     // Move
-    //     m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-
-    //     //Set AirSpeed in animator
-    //     m_animator.SetFloat("AirSpeed", m_body2d.velocity.y);
-
-    //     // -- Handle Animations --
-    //     //Death
-    //     if (Input.GetKeyDown("e")) {
-    //         if(!m_isDead)
-    //             m_animator.SetTrigger("Death");
-    //         else
-    //             m_animator.SetTrigger("Recover");
-
-    //         m_isDead = !m_isDead;
-    //     }
-            
-    //     //Hurt
-    //     else if (Input.GetKeyDown("q"))
-    //         m_animator.SetTrigger("Hurt");
-
-    //     //Attack
-    //     else if(Input.GetMouseButtonDown(0)) {
-    //         m_animator.SetTrigger("Attack");
-    //     }
-
-    //     //Change between idle and combat idle
-    //     else if (Input.GetKeyDown("f"))
-    //         m_combatIdle = !m_combatIdle;
-
-    //     //Jump
-    //     else if (Input.GetKeyDown("space") && m_grounded) {
-    //         m_animator.SetTrigger("Jump");
-    //         m_grounded = false;
-    //         m_animator.SetBool("Grounded", m_grounded);
-    //         m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-    //         m_groundSensor.Disable(0.2f);
-    //     }
-
-    //     //Run
-    //     else if (Mathf.Abs(inputX) > Mathf.Epsilon)
-    //         m_animator.SetInteger("AnimState", 2);
-
-    //     //Combat Idle
-    //     else if (m_combatIdle)
-    //         m_animator.SetInteger("AnimState", 1);
-
-    //     //Idle
-    //     else
-    //         m_animator.SetInteger("AnimState", 0);
-    // }
+    public void TakeDamage(int damage){
+        if(m_isDead == false) {
+            health -= damage;
+            healthBar.SetHealth(health);
+            m_animator.SetTrigger("hurt");
+            if(health <= 0) {
+                m_animator.SetBool("dead",true);
+                m_isDead = true;
+            }
+        }
+    }
 }
