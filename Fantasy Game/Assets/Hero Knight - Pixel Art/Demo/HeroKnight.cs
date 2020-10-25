@@ -23,6 +23,10 @@ public class HeroKnight : MonoBehaviour {
     private float               m_timeSinceAttack = 0.0f;
     private float               m_delayToIdle = 0.0f;
 
+    public LayerMask enemyLayers;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+
 
     // Use this for initialization
     void Start ()
@@ -62,13 +66,17 @@ public class HeroKnight : MonoBehaviour {
         // Swap direction of sprite depending on walk direction
         if (inputX > 0)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            // GetComponent<SpriteRenderer>().flipX = false;
+            if (transform.localScale.x < 0)
+                transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
             m_facingDirection = 1;
         }
             
         else if (inputX < 0)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            // GetComponent<Transform>().flipX = true;
+            if (transform.localScale.x > 0)
+                transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
             m_facingDirection = -1;
         }
 
@@ -95,7 +103,7 @@ public class HeroKnight : MonoBehaviour {
             m_animator.SetTrigger("Hurt");
 
         //Attack
-        else if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f)
+        else if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.50f)
         {
             m_currentAttack++;
 
@@ -109,6 +117,13 @@ public class HeroKnight : MonoBehaviour {
 
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
+
+            // detects if an enemy was hit
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayers);
+            Debug.Log(hitEnemies.Length);
+            foreach (Collider2D enemy in hitEnemies){
+                Debug.Log(enemy.name);
+            }
 
             // Reset timer
             m_timeSinceAttack = 0.0f;
@@ -166,6 +181,10 @@ public class HeroKnight : MonoBehaviour {
     void AE_ResetRoll()
     {
         m_rolling = false;
+    }
+
+    void OnDrawGizmosSelected() {
+        Gizmos.DrawWireSphere(attackPoint.position,attackRange);
     }
 
     // Called in slide animation.
