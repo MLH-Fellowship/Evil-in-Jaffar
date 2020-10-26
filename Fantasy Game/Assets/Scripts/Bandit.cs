@@ -72,7 +72,7 @@ public class Bandit : MonoBehaviour {
     }
 
     public void TakeDamage(int damage){
-        if(m_isDead == false) {
+        if(m_isDead == false && health > 0) {
             health -= damage;
             healthBar.SetHealth(health);
             m_animator.SetTrigger("hurt");
