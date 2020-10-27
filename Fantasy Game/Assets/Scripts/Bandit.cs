@@ -54,6 +54,8 @@ public class Bandit : MonoBehaviour {
         pos += transform.right * attackOffset.x;
         pos += transform.up * attackOffset.y;
 
+        FindObjectOfType<AudioManager>().Play("enemy-attack");
+
         Collider2D hitPlayer = Physics2D.OverlapCircle(pos,attackRange, playerMask);
         if (hitPlayer != null) {
             // Debug.Log(hitPlayer.name);
@@ -77,6 +79,8 @@ public class Bandit : MonoBehaviour {
             healthBar.SetHealth(health);
             m_animator.SetTrigger("hurt");
             if(health <= 0) {
+                FindObjectOfType<AudioManager>().Play("death");
+                FindObjectOfType<AudioManager>().Play("body-thud");
                 m_animator.SetBool("dead",true);
                 m_isDead = true;
             }

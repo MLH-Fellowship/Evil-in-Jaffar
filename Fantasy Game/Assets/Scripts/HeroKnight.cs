@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HeroKnight : MonoBehaviour {
 
@@ -120,6 +121,8 @@ public class HeroKnight : MonoBehaviour {
             // Call one of three attack animations "Attack1", "Attack2", "Attack3"
             m_animator.SetTrigger("Attack" + m_currentAttack);
 
+            FindObjectOfType<AudioManager>().Play("sword-attack");
+
             // detects if an enemy was hit
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange, enemyLayers);
             foreach (Collider2D enemy in hitEnemies){
@@ -159,6 +162,8 @@ public class HeroKnight : MonoBehaviour {
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
             m_groundSensor.Disable(0.2f);
+
+            FindObjectOfType<AudioManager>().Play("jump");
         }
 
         //Run
@@ -197,6 +202,8 @@ public class HeroKnight : MonoBehaviour {
             m_animator.SetTrigger("Hurt");
             if(health <= 0) {
                 
+                FindObjectOfType<AudioManager>().Play("death");
+                FindObjectOfType<AudioManager>().Play("body-thud");
                 m_animator.SetTrigger("Death");
                 m_isDead = true;
                 this.enabled= false;
