@@ -7,13 +7,29 @@ public class LevelLoader : MonoBehaviour
 {
      public Animator transition;
      public float transitionTime = 1f;
+     public float waitTime = 3f;
+     public GameObject Enemy;
+     Animator enemy_anim;
 
+     void Awake() {
+	enemy_anim = Enemy.GetComponent<Animator>();
+     }
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("b")) {
-		LoadNextLevel();
+	if(enemy_anim.GetBool("dead")) {
+       	  StartCoroutine(BeginTransition(waitTime));
+						
 	}
+    }
+
+    IEnumerator BeginTransition(float time) {
+	    
+	    //Wait for a few seconds
+	    yield return new WaitForSeconds(time);
+
+	    //Start transition
+	    LoadNextLevel();
     }
 
     public void LoadNextLevel() {

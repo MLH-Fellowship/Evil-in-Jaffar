@@ -3491,6 +3491,16 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 6194759229464762322}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: Skeleton
+      value: 
+      objectReference: {fileID: 3628678104825684113}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 3628678104825684113}
     - target: {fileID: 6194759230615001468, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
