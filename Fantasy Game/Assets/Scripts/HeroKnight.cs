@@ -106,7 +106,7 @@ public class HeroKnight : MonoBehaviour {
         m_animator.SetBool("WallSlide", (m_wallSensorR1.State() && m_wallSensorR2.State()) || (m_wallSensorL1.State() && m_wallSensorL2.State()));
 
         //Attack
-        if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.50f)
+        if(Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.75f)
         {
             m_currentAttack++;
 
