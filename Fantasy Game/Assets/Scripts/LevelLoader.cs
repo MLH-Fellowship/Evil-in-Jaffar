@@ -6,27 +6,50 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
      public Animator transition;
+     public Canvas healthbars;
+     public GameObject Enemy;
+     public GameObject Player;
+     Animator enemy_anim;
+     Animator player_anim;
+
      public float transitionTime = 1f;
      public float waitTime = 3f;
-     public GameObject Enemy;
-     Animator enemy_anim;
+     public int win_scene = 6;
+     public int lose_scene = 7;
+     public int final_level = 5;
 
+
+     //Get access to enemy animator to trigger transition and level loader events
      void Awake() {
 	enemy_anim = Enemy.GetComponent<Animator>();
+	player_anim = Player.GetComponent<Animator>();
      }
+
+
     // Update is called once per frame
     void Update()
     {
-	if(enemy_anim.GetBool("dead")) {
-       	  StartCoroutine(BeginTransition(waitTime));
-						
+	if(player_anim.GetBool("Death")) {
+		StartCoroutine(BeginTransitionConclusion(waitTime, false));
+	}
+	else if(enemy_anim.GetBool("dead")) {
+		if (SceneManager.GetActiveScene().buildIndex == final_level) {
+		    StartCoroutine(BeginTransitionConclusion(waitTime, true));
+		}
+		else{
+		    StartCoroutine(BeginTransition(waitTime));
+		}					
 	}
     }
 
+    //Enable transitions for each fighting level
     IEnumerator BeginTransition(float time) {
 	    
 	    //Wait for a few seconds
 	    yield return new WaitForSeconds(time);
+
+	    //Disable the healthbar UI
+	    healthbars.GetComponent<Canvas>().enabled = false;
 
 	    //Start transition
 	    LoadNextLevel();
@@ -47,5 +70,33 @@ public class LevelLoader : MonoBehaviour
 	 //Load Scene
 	 SceneManager.LoadScene(levelIndex);
     }
+
+    //Start the conclusion transition
+    IEnumerator BeginTransitionConclusion(float time, bool win) {
+	
+	 //Wait for a few seconds
+	 yield return new WaitForSeconds(time);
+
+	 //Disable the healthbar UI
+	healthbars.GetComponent<Canvas>().enabled = false; 
+
+	//Start transition
+	if(win) {
+	    LoadLastLevel(true);
+	}
+	else{
+	    LoadLastLevel(false);
+	}
+    }
+
+    public void LoadLastLevel(bool win) {
+	    if(win) {
+	   	 StartCoroutine(LoadLevel(win_scene));
+	    }
+	    else {
+		 StartCoroutine(LoadLevel(lose_scene));
+	    }
+    }
+
 
 }

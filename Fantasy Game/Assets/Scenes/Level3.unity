@@ -1134,6 +1134,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b4a6d32bcb19248a754d6602ffc7e4, type: 3}
+--- !u!1 &1406484239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6323719953710832613, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1406484238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1433007322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1803,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3323458069943061743, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
       propertyPath: transition
@@ -1807,6 +1818,16 @@ PrefabInstance:
       propertyPath: Enemy
       value: 
       objectReference: {fileID: 178506148}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: healthbars
+      value: 
+      objectReference: {fileID: 1433007325}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1406484239}
     - target: {fileID: 6194759230615001468, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
       propertyPath: m_LocalPosition.x

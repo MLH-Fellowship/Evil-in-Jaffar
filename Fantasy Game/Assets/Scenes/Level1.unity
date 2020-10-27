@@ -1105,6 +1105,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1679532558}
+    - target: {fileID: 9043920546160527475, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
+        type: 3}
+      propertyPath: m_isDead
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9117128348835321587, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_Offset.x
@@ -1120,6 +1125,12 @@ PrefabInstance:
 --- !u!4 &1158289238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1158289237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1158289239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6323719953710832613, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
     type: 3}
   m_PrefabInstance: {fileID: 1158289237}
   m_PrefabAsset: {fileID: 0}
@@ -3486,6 +3497,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 526503457636718808, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323458069943061743, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
       propertyPath: transition
@@ -3501,6 +3522,21 @@ PrefabInstance:
       propertyPath: Enemy
       value: 
       objectReference: {fileID: 3628678104825684113}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: healthbars
+      value: 
+      objectReference: {fileID: 711944468}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: transitionTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1158289239}
     - target: {fileID: 6194759230615001468, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
       propertyPath: m_LocalPosition.x
