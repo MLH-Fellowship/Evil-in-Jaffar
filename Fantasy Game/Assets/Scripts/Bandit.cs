@@ -9,6 +9,8 @@ public class Bandit : MonoBehaviour {
     private Animator            m_animator;
     private bool                m_isDead = false;
 
+    public int attackDamage = 99;
+
     public int health;
     public int maxHealth = 1000;
     public HealthBar healthBar;
@@ -55,7 +57,7 @@ public class Bandit : MonoBehaviour {
         Collider2D hitPlayer = Physics2D.OverlapCircle(pos,attackRange, playerMask);
         if (hitPlayer != null) {
             // Debug.Log(hitPlayer.name);
-            if (hitPlayer.GetComponent<HeroKnight>().TakeDamage(99)) {
+            if (hitPlayer.GetComponent<HeroKnight>().TakeDamage(attackDamage)) {
                 m_animator.SetBool("playerDead", true);
             }
         }

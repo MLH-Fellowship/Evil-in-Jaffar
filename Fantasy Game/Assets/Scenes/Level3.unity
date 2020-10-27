@@ -376,6 +376,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 114999745408315450, guid: 3248535f6a2562c489a1223a75951ef2,
+        type: 3}
+      propertyPath: attackDamage
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
 --- !u!1 &178506148 stripped
@@ -587,8 +592,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644968844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.113, y: -0.028, z: 0}
-  m_LocalScale: {x: 2.4120004, y: 2.8883166, z: 1}
+  m_LocalPosition: {x: -0.03, y: 0.3, z: 0}
+  m_LocalScale: {x: 2.5707839, y: 3.0784562, z: 1.0658306}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
