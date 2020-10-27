@@ -14,9 +14,10 @@ public class LevelLoader : MonoBehaviour
 
      public float transitionTime = 1f;
      public float waitTime = 3f;
-     public int win_scene = 6;
-     public int lose_scene = 7;
-     public int final_level = 5;
+     public int win_scene = 8;
+     public int lose_scene = 9;
+     public int final_level = 7;
+     public int first_level = 3;
 
 
      //Get access to enemy animator to trigger transition and level loader events
@@ -100,6 +101,10 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu() {
 	    SceneManager.LoadScene(0);
+    }
+
+    public void LoadFirstLevel() {
+	    SceneManager.LoadScene(first_level);
     }
 
 

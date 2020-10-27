@@ -963,6 +963,26 @@ PrefabInstance:
       propertyPath: Enemy
       value: 
       objectReference: {fileID: 202398715}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: lose_scene
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: win_scene
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: final_level
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
+        type: 3}
+      propertyPath: first_level
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6194759230615001468, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
       propertyPath: m_LocalPosition.x

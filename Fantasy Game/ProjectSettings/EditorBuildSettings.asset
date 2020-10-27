@@ -9,16 +9,22 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: c2338c28ad20a465789a1dff01b9bcc5
   - enabled: 1
+    path: Assets/Scenes/Introduction.unity
+    guid: a875d4b785c544e1eaf3ad9d270201a8
+  - enabled: 1
+    path: Assets/Scenes/Transition1.unity
+    guid: ac3ed6e3e6a86497095a392b0ffedf63
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 43eca265920c848939d9300c7d3389ee
   - enabled: 1
-    path: Assets/Scenes/Transition1.unity
+    path: Assets/Scenes/Transition2.unity
     guid: 65f0b3fc9ee8246eb9de982422ce59ac
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: a4a97a101f3cf48e083da5e62fe5a021
   - enabled: 1
-    path: Assets/Scenes/Transition2.unity
+    path: Assets/Scenes/Transition3.unity
     guid: b8f61832e84fa48ec91f3b745a235e8b
   - enabled: 1
     path: Assets/Scenes/Level3.unity
