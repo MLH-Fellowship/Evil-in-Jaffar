@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
 	public AudioMixerGroup mixerGroup;
 
+	AudioSource bg;
+
 	public Sound[] sounds;
 
 	void Awake()
@@ -35,7 +37,21 @@ public class AudioManager : MonoBehaviour
 
 	void Start()
 	{
-		Play("forest-theme");
+		
+		// if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level1") {
+        //     Play("forest-theme");
+			
+        // } else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level2") {
+        //     Play("cave-theme");
+			
+        // } else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Level3") {
+		// 	Play("final-theme");
+			
+        // }
+		bg = GetComponent<AudioSource>();
+		bg.Play();
+
+	
 	}
 
 	public void Play(string sound)

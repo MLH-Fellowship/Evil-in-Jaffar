@@ -164,7 +164,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 0}
+  healthbars: {fileID: 0}
+  Enemy: {fileID: 0}
+  Player: {fileID: 0}
   transitionTime: 1
+  waitTime: 3
+  win_scene: 8
+  lose_scene: 9
+  final_level: 7
+  first_level: 3
 --- !u!1 &9062384692628980293
 GameObject:
   m_ObjectHideFlags: 0

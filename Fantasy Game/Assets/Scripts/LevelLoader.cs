@@ -104,7 +104,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void LoadFirstLevel() {
-	    SceneManager.LoadScene(first_level);
+	    SceneManager.LoadScene(2);
     }
 
 
