@@ -7,10 +7,6 @@ public class Bandit : MonoBehaviour {
     [SerializeField] float      m_jumpForce = 7.5f;
 
     private Animator            m_animator;
-    // private Rigidbody2D         m_body2d;
-    // private Sensor_Bandit       m_groundSensor;
-    // private bool                m_grounded = false;
-    // private bool                m_combatIdle = false;
     private bool                m_isDead = false;
 
     public int health;

@@ -958,12 +958,12 @@ PrefabInstance:
     - target: {fileID: 3679226689426113213, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.505
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 3679226689426113213, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.896
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 6323719953710832613, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
@@ -993,12 +993,12 @@ PrefabInstance:
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.42
+      value: -10.23
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.19
+      value: -2.57
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
@@ -1048,12 +1048,12 @@ PrefabInstance:
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.210744
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.922096
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8413529789942519730, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
@@ -1088,12 +1088,12 @@ PrefabInstance:
     - target: {fileID: 9043920546160527475, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: attackRange
-      value: 1.61
+      value: 2.79
       objectReference: {fileID: 0}
     - target: {fileID: 9043920546160527475, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
       propertyPath: m_speed
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 9043920546160527475, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
@@ -1109,6 +1109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isDead
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9043920546160527475, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
+        type: 3}
+      propertyPath: m_jumpForce
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9117128348835321587, guid: a4b4a6d32bcb19248a754d6602ffc7e4,
         type: 3}
@@ -3442,12 +3447,12 @@ PrefabInstance:
     - target: {fileID: 3628678105759141453, guid: 0cdb8735d9108491192e70af1db92f3d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.96
+      value: 11.4
       objectReference: {fileID: 0}
     - target: {fileID: 3628678105759141453, guid: 0cdb8735d9108491192e70af1db92f3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.68
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 3628678105759141453, guid: 0cdb8735d9108491192e70af1db92f3d,
         type: 3}
@@ -3497,12 +3502,12 @@ PrefabInstance:
     - target: {fileID: 3628678105759141453, guid: 0cdb8735d9108491192e70af1db92f3d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.492341
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3628678105759141453, guid: 0cdb8735d9108491192e70af1db92f3d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 8.743056
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cdb8735d9108491192e70af1db92f3d, type: 3}
@@ -3534,8 +3539,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
-  attackRange: 1.3
-  attackOffset: {x: 1.7, y: 0.6, z: 0}
+  attackRange: 2.96
+  attackOffset: {x: 4.12, y: 0.76, z: 0}
 --- !u!61 &3628678104825684115
 BoxCollider2D:
   m_ObjectHideFlags: 0
