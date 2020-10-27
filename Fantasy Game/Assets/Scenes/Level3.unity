@@ -1955,7 +1955,7 @@ PrefabInstance:
     - target: {fileID: 5823534460127757733, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
       propertyPath: first_level
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6194759230615001468, guid: 957390652cf8142dd8faf072efca37a1,
         type: 3}
