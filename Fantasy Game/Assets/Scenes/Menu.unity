@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.003921569}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1418,9 +1418,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 1490198717}
+  healthbars: {fileID: 0}
+  Enemy: {fileID: 0}
+  Player: {fileID: 0}
   transitionTime: 1
   waitTime: 3
-  Enemy: {fileID: 0}
+  win_scene: 6
+  lose_scene: 7
+  final_level: 5
 --- !u!114 &2049731549
 MonoBehaviour:
   m_ObjectHideFlags: 0

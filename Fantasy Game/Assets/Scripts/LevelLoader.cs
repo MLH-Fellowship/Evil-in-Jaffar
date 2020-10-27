@@ -98,5 +98,9 @@ public class LevelLoader : MonoBehaviour
 	    }
     }
 
+    public void LoadMainMenu() {
+	    SceneManager.LoadScene(0);
+    }
+
 
 }
