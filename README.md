@@ -41,7 +41,7 @@ Clear the 3 quests in the game by battling 3 different villains, the last one be
  - _Arrow keys__: Use these to move your knight
 
 ## Deployment
-Webgl 
+ - (https://evil-in-jaffar.netlify.app/)
 
 ## Game Engine:
  - Unity 
