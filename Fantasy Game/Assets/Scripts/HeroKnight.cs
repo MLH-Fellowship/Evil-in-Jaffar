@@ -155,7 +155,7 @@ public class HeroKnight : MonoBehaviour {
             
 
         //Jump
-        else if (Input.GetKeyDown("space") && m_grounded)
+        else if (Input.GetKeyDown("w") && m_grounded)
         {
             m_animator.SetTrigger("Jump");
             m_grounded = false;
