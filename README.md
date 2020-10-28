@@ -1,5 +1,5 @@
 # Evil in Jaffar
-## Introduction
+
 <img src="images/1.png">
 
 <p align="center">
@@ -12,6 +12,9 @@ To save the world from it's biggest fall<br/>
  
 <img src="images/HeroKnight.png" width=100>
 </p>
+
+
+## Introduction
 
 When the abode of heaven was created by the forces of good, a prophecy was made that an evil power will control the world as long as the angel of good doesn't intervene. 
 
