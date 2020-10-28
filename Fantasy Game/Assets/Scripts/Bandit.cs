@@ -24,9 +24,6 @@ public class Bandit : MonoBehaviour {
     // Use this for initialization
     void Start () {
         m_animator = GetComponent<Animator>();
-        // m_body2d = GetComponent<Rigidbody2D>();
-        // m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Bandit>();
-
         Physics2D.IgnoreLayerCollision(8,10);
         health = maxHealth;
         healthBar.MaxHealth(maxHealth);
@@ -56,7 +53,6 @@ public class Bandit : MonoBehaviour {
 
         Collider2D hitPlayer = Physics2D.OverlapCircle(pos,attackRange, playerMask);
         if (hitPlayer != null) {
-            // Debug.Log(hitPlayer.name);
             if (hitPlayer.GetComponent<HeroKnight>().TakeDamage(attackDamage)) {
                 m_animator.SetBool("playerDead", true);
             }

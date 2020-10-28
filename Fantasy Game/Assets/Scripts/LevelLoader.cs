@@ -21,27 +21,29 @@ public class LevelLoader : MonoBehaviour
 
 
      //Get access to enemy animator to trigger transition and level loader events
-     void Awake() {
+    void Awake() {
 	enemy_anim = Enemy.GetComponent<Animator>();
 	player_anim = Player.GetComponent<Animator>();
      }
 
 
     // Update is called once per frame
-    void Update()
-    {
-	if(player_anim.GetBool("Death")) {
-		StartCoroutine(BeginTransitionConclusion(waitTime, false));
-	}
-	else if(enemy_anim.GetBool("dead")) {
-		if (SceneManager.GetActiveScene().buildIndex == final_level) {
-		    StartCoroutine(BeginTransitionConclusion(waitTime, true));
+    void Update(){
+
+		//Play for ending scenes
+		if(player_anim.GetBool("Death")) {
+			StartCoroutine(BeginTransitionConclusion(waitTime, false));
 		}
-		else{
-		    StartCoroutine(BeginTransition(waitTime));
-		}					
+		else if(enemy_anim.GetBool("dead")) {
+			if (SceneManager.GetActiveScene().buildIndex == final_level) {
+		    	StartCoroutine(BeginTransitionConclusion(waitTime, true));
+			}
+			else{
+				//Play for rest of the levels
+		    	StartCoroutine(BeginTransition(waitTime));
+			}
+		}
 	}
-    }
 
     //Enable transitions for each fighting level
     IEnumerator BeginTransition(float time) {

@@ -17,10 +17,10 @@ public class Transition : MonoBehaviour
     }
 
      //Enable transitions from transition to fight level
-     IEnumerator BeginTransition(float time) {
-	    
-	    //Wait for a few seconds
-	    yield return new WaitForSeconds(time);
+    IEnumerator BeginTransition(float time) {
+        
+        //Wait for a few seconds
+        yield return new WaitForSeconds(time);
 
 	    //Start transition
 	    LoadNextLevel();

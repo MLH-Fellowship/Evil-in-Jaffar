@@ -80,7 +80,6 @@ public class HeroKnight : MonoBehaviour {
         // Swap direction of sprite depending on walk direction
         if (inputX > 0)
         {
-            // GetComponent<SpriteRenderer>().flipX = false;
             if (transform.localScale.x < 0)
                 transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
             m_facingDirection = 1;
@@ -88,7 +87,6 @@ public class HeroKnight : MonoBehaviour {
             
         else if (inputX < 0)
         {
-            // GetComponent<Transform>().flipX = true;
             if (transform.localScale.x > 0)
                 transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
             m_facingDirection = -1;
